@@ -1,0 +1,46 @@
+type (
+	expandReq {
+		Shorten string `form:"shorten"`
+	}
+
+	expandResp {
+		Url string `json:"url"`
+	}
+)
+
+type (
+	shortenReq {
+		Url string `form:"url"`
+	}
+
+	shortenResp {
+		Shorten string `json:"shorten"`
+	}
+)
+
+type (
+	helmReq {
+		HelmAddr string `form:"helmaddr"`
+	}
+
+	helmResp {
+		Helm string `json:"helm"`
+	}
+)
+
+service shorturl-api {
+	@server(
+		handler: ShortenHandler
+	)
+	get /shorten(shortenReq) returns(shortenResp)
+	
+	@server(
+		handler: HelmHadnler
+	)
+	get /helmAddr10086(helmReq) returns(helmResp)
+	
+	@server(
+		handler: ExpandHandler
+	)
+	get /expand(expandReq) returns(expandResp)
+}
