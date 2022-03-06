@@ -6,7 +6,7 @@ import (
 	"ccdd/internal/logic"
 	"ccdd/internal/svc"
 	"ccdd/internal/types"
-	"github.com/tal-tech/go-zero/rest/httpx"
+	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 func HelmHadnlerHandler(ctx *svc.ServiceContext) http.HandlerFunc {
